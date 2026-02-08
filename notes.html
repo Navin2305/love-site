@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Notes – Chapter 4: Decode My Devotion 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 50%, #d7b9d5 100%);">
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home 💖</a></li>
+            <li><a href="memories.html">Memories 🔓</a></li>
+            <li><a href="beach.html">Our Beach 🌊</a></li>
+            <li><a href="notes.html" class="active">Whispers 💌</a></li>
+            <li><a href="vows.html">Vows 💍</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise Scratch! 🕹️</a></li>
+            <li><a href="#" onclick="unlockEternal()">Eternal Us? (Secret)</a></li>
+        </ul>
+    </nav>
+    <main class="container" style="padding: 100px 0; text-align: center;">
+        <h1 class="animate-in">Words From My Soul – Cipher to Claim 💭</h1>
+        <p class="hero-text animate-in" style="animation-delay: 0.3s;">Decode this for my heart's key: Shift each letter back by 3 (D=A? Wait, Caesar reverse: D=A). "Fkhz, Brx duh pb zruog." Unlock the sonnets! (Hint: It's a greeting to your world.)</p>
+        <input type="text" id="cipherInput" placeholder="Decoded message..." style="padding: 15px; border-radius: 25px; border: 2px solid #ff69b4; text-align: center; font-size: 1.2rem; margin: 20px; width: 350px; font-family: 'Playfair Display', serif; transition: all 0.3s;">
+        <button onclick="decodeCipher()" class="envelope animate-in" style="animation-delay: 0.6s; background: linear-gradient(45deg, #ff9a9e, #fecfef); color: #e91e63; padding: 15px 30px; font-size: 1.3rem;">Reveal Whispers</button>
+        <div id="notesContent" style="display: none;">
+            <div class="gallery">
+                <div class="note">
+                    <p>Decoded: "Dear, You are my world." Secret: I love you sooo much, myy loveeee – you're the verse I breathe, the blood in my veins. From beach sands to city lights, you're etched eternal.</p>
+                </div>
+                <div class="note">
+                    <p>Every dawn, your name on my lips like dew on jasmine. Secret: I'd trade galaxies for one more laugh from you, Mineee.</p>
+                </div>
+                <div class="note">
+                    <p>You're my monsoon miracle, turning storms to symphonies. Secret: In quiet moments, I trace your silhouette in stars. Sooo much loveee, always blooming.</p>
+                </div>
+            </div>
+            <div class="secret-popup" id="cipherSecret">
+                <p>Perfect, my poet! +1 win. These words? Mere echoes of my endless adoration – but oh, how they sing for you. 🌹</p>
+                <button onclick="closeSecret('cipherSecret')">Whisper On</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('cipherInput').addEventListener('input', () => {
+            document.getElementById('cipherInput').style.borderColor = '#ff69b4';
+            document.getElementById('cipherInput').style.boxShadow = '0 0 10px rgba(255,105,180,0.2)';
+        });
+        let wins = parseInt(localStorage.getItem('loveWins') || 0);
+        function decodeCipher() {
+            const input = document.getElementById('cipherInput').value.toLowerCase();
+            if (input.includes('dear you are my world') || input.includes('dear, you are my world')) {
+                document.getElementById('notesContent').style.display = 'block';
+                staggerGallery('.note');
+                document.getElementById('cipherSecret').style.display = 'block';
+                localStorage.setItem('loveWins', ++wins);
+                createConfetti(50);
+                updateProgress();
+            } else {
+                document.getElementById('cipherInput').style.borderColor = '#ff9a9e';
+                document.getElementById('cipherInput').style.boxShadow = '0 0 10px rgba(255,154,158,0.2)';
+                alert('Shh, closer... like how you pull me in with a glance. Try again, love. (Hint: Start with affection.) 💕');
+                createHearts(3);
+            }
+        }
+        window.onload = () => { createCursorTrail(); };
+    </script>
+</body>
+</html>

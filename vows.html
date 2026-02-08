@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vows – Chapter 5: Renew the Oath 💍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home 💖</a></li>
+            <li><a href="memories.html">Memories 🔓</a></li>
+            <li><a href="beach.html">Our Beach 🌊</a></li>
+            <li><a href="notes.html">Whispers 💌</a></li>
+            <li><a href="vows.html" class="active">Vows 💍</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise Scratch! 🕹️</a></li>
+            <li><a href="#" onclick="unlockEternal()">Eternal Us? (Secret)</a></li>
+        </ul>
+    </nav>
+    <main class="container" style="padding: 100px 0; text-align: center;">
+        <h1 class="animate-in">Replay Our Vows – Ritual to Renew 🌟</h1>
+        <p class="hero-text animate-in" style="animation-delay: 0.3s;">Light the flame: Type "I vow" three times in 10 seconds. Feel my promise ignite, pulsing like our shared heartbeat... unlocking the path to all our photos in eternity.</p>
+        <div id="vowRitual" class="animate-in" style="animation-delay: 0.6s; margin: 40px 0;">
+            <input type="text" id="vowInput" placeholder="Type 'I vow'..." style="padding: 15px; border-radius: 25px; border: 2px solid #ff69b4; text-align: center; font-size: 1.3rem; margin: 10px; width: 250px; font-family: 'Dancing Script', cursive; transition: all 0.3s;">
+            <div id="vowCount" style="font-size: 1.8rem; color: #e91e63; margin: 20px; font-family: 'Dancing Script', cursive; animation: pulse 2s infinite;">Vows spoken: 0/3</div>
+        </div>
+        <div id="vowsContent" style="display: none;">
+            <p class="vow-text animate-in" style="animation-delay: 0.3s; font-size: 1.6rem; font-style: italic; max-width: 700px; margin: 0 auto 40px; font-family: 'Playfair Display', serif;">Cutieeeee Pieee, I vow to love you sooo much – through every tide, every trial, every twilight. You're my always, my anchor, my aurora. From Bengaluru's hustle to beachside bliss, my heart is yours, woven in whispers and waves... and every photo that captures your glow.</p>
+            <div class="secret-popup" id="vowSecret">
+                <p>Ritual complete! +1 eternal win. My heart beats your name in Morse code across the stars. Now, the grand secret – and our full album – awaits? 💖</p>
+                <button onclick="closeSecret('vowSecret')">Seal Forever</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        let wins = parseInt(localStorage.getItem('loveWins') || 0);
+        let vowClicks = 0, vowTimer;
+        const input = document.getElementById('vowInput');
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && e.target.value.toLowerCase().trim() === 'i vow') {
+                vowClicks++;
+                document.getElementById('vowCount').textContent = `Vows spoken: ${vowClicks}/3`;
+                document.getElementById('vowCount').style.color = vowClicks >= 2 ? '#ff69b4' : '#e91e63';
+                e.target.value = '';
+                createHearts(100);
+                if (vowClicks === 3) {
+                    clearTimeout(vowTimer);
+                    document.getElementById('vowsContent').style.display = 'block';
+                    localStorage.setItem('loveWins', ++wins);
+                    createConfetti(1000);
+                    updateProgress();
+                } else {
+                    vowTimer = setTimeout(() => { 
+                        vowClicks = 0; 
+                        document.getElementById('vowCount').textContent = 'Vows spoken: 0/3 – Start over, my eternal?'; 
+                        document.getElementById('vowCount').style.color = '#e91e63';
+                    }, 10000);
+                }
+            }
+        });
+        input.addEventListener('input', () => {
+            input.style.borderColor = '#ff69b4';
+            input.style.boxShadow = '0 0 10px rgba(255,105,180,0.2)';
+        });
+        window.onload = () => { createCursorTrail(); };
+    </script>
+</body>
+</html>

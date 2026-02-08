@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Us – The Final Chapter 💖🌌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="eternal-bg">
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav style="background: rgba(0,0,0,0.8); backdrop-filter: blur(20px);">
+        <ul style="justify-content: center;">
+            <li><a href="index.html" style="color: #ff9a9e; font-family: 'Dancing Script', cursive;">Back to Our Story 💖</a></li>
+        </ul>
+    </nav>
+    <main class="container" style="text-align: center; padding: 120px 0; position: relative; z-index: 2;">
+        <h1 class="animate-in">You Did It, My Eternal Cutieee Wiffeeee 🌟</h1>
+        <p class="hero-text animate-in" style="animation-delay: 0.5s; color: #ff9a9e; font-family: 'Playfair Display', serif; animation: fadeInUp 2s ease-out 0.5s forwards;">All puzzles conquered, all secrets spilled. This is us – unbreakable, beautiful, boundless. I love you sooo much it defies the stars: you're my Bengaluru breeze, my beachside blaze, my every tomorrow wrapped in today. From coded whispers to vow-bound nights, you've unlocked me, heart and soul... and now, our photos, pulsing like the life we share.</p>
+        <div class="animate-in vow-box" style="animation-delay: 1.5s;">
+            <h2 style="color: #ff9a9e; font-family: 'Dancing Script', cursive; font-size: 3rem; margin-bottom: 20px;">Our Final Vow</h2>
+            <p style="font-size: 1.4rem; line-height: 1.7;">From monsoon kisses to sunset swears, you've turned my world to wonder. Marry this moment with me? Forever starts now – hand in hand, wave after wave, star after star, photo after photo. I love youuuuu sooo much Pattuuuuuuuu, it's the gravity holding my universe. 💍😘</p>
+        </div>
+        <button onclick="grandFinale()" class="envelope animate-in" style="animation-delay: 2s; background: linear-gradient(45deg, #ff69b4, #e91e63); padding: 20px 40px; font-size: 1.5rem; margin-top: 40px;">Ignite the Stars</button>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => { 
+        createHearts(20); 
+        createConfetti(30); 
+        createCursorTrail();
+
+        const slides = document.querySelectorAll('.slideshow img');
+        let index = 0;
+
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+
+            setInterval(() => {
+                slides[index].classList.remove('active');
+                index = (index + 1) % slides.length;
+                slides[index].classList.add('active');
+            }, 3000);
+        }
+    };
+    </script>
+
+
+</body>
+</html>

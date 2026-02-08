@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Eternal Love – Chapter 1: The Invitation 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-bg">
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav class="nav-container">
+        <ul>
+            <li><a href="index.html" class="active">Home 💖</a></li>
+            <li><a href="memories.html">Memories 🔓</a></li>
+            <li><a href="beach.html">Our Beach 🌊</a></li>
+            <li><a href="notes.html">Whispers 💌</a></li>
+            <li><a href="vows.html">Vows 💍</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise Scratch! 🕹️</a></li>
+            <li><a href="#" onclick="unlockEternal()">Eternal Us? (Secret)</a></li>
+        </ul>
+    </nav>
+    <main class="container main-content">
+        <h1 class="animate-in title-harmony">To My Wave in Human Form, Pavithra Malyaa 🌹</h1>
+        <p class="hero-text animate-in" style="animation-delay: 0.3s;">Darling, this isn't just pages – it's our story, locked with games that guard my deepest secrets... and snapshots of us, frozen in forever. Each win? A piece of my soul – and a photo – for you. I love you sooo much, it spills like sunlight on our smiles. Ready to play? Click to begin...</p>
+        <div class="countdown animate-in" id="countdown" style="animation-delay: 0.6s;"></div>
+        <div class="progress-bar animate-in" style="animation-delay: 0.9s;">
+            <div class="progress-fill" id="progressFill"></div>
+            <span>Love Meter: <span id="progressText">0/5</span> Secrets & Snaps Unlocked 💓</span>
+        </div>
+        <div class="envelope animate-in button-harmony" onclick="openWelcomeSecret()" style="animation-delay: 1.2s;">
+            💌 Click for Your First Whisper
+        </div>
+        <div id="welcomeSecret" class="secret-popup">
+            <p>Secret #1: From the moment our hands brushed in Bengaluru's chaos, you became my calm. I love you more than filter coffee on rainy mornings – warm, essential, forever. (P.S. Photos await – our album's just warming up.) Now, venture forth! 😘</p>
+            <button onclick="closeSecret('welcomeSecret')">Seal & Explore</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        function openWelcomeSecret() {
+            document.getElementById('welcomeSecret').style.display = 'block';
+            createHearts(10);
+            updateProgress();
+            createCursorTrail();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beach – Chapter 3: Match the Tides 🌊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="beach-bg">
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home 💖</a></li>
+            <li><a href="memories.html">Memories 🔓</a></li>
+            <li><a href="beach.html" class="active">Our Beach 🌊</a></li>
+            <li><a href="notes.html">Whispers 💌</a></li>
+            <li><a href="vows.html">Vows 💍</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise Scratch! 🕹️</a></li>
+            <li><a href="#" onclick="unlockEternal()">Eternal Us? (Secret)</a></li>
+        </ul>
+    </nav>
+    <main class="container beach" style="padding: 100px 0; text-align: center;">
+        <h1 class="animate-in" style="color: #4682B4;">Our Beachside Symphony – Match to Dive Deep 💙</h1>
+        <div class="beach-story animate-in" style="animation-delay: 0.3s;">
+            <p>Remember Our Moonlit Beach? Waves lapping like my pulse for you – salty, ceaseless, sacred. I loveeeeeeeee youuuu soooooooooo soooooooooo muchhh myy dear Cutieeeeeee wiffeeeeee 🩷💟♾️😘💋💋💋💋, deeper than the Arabian Sea's secrets. Play to unlock our beach collage – snaps that salt-kiss the soul...</p>
+            <div class="game-container" id="gameBoard"></div>
+            <div class="game-status animate-in" id="gameStatus" style="animation-delay: 0.6s;">Flip to match our beach magic! Win my deepest secret & snaps. 💕</div>
+            <div class="win-message" id="winMessage">The waves remember us, even if the world forgets. Every tide whispers your name back to me. I love you more than the ocean loves the shore — endlessly, patiently, forever. 🌊❤️</div>
+            <div id="beachCollage" class="beach-collage">
+                <img src="pic/pic-4.jpeg" alt="Us against the waves – your hand in mine, eternity starting.">
+                <img src="pic/pic-5.jpeg" alt="Sunset silhouette – our shadows dancing longer than the day.">
+                <img src="pic/pic-6.jpeg" alt="Foam-flecked laughs – the sea jealous of our joy.">
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+let wins = parseInt(localStorage.getItem('loveWins') || 0);
+
+const beachPairs = ['🌊', '🏖️', '🌅', '💕', '🐚', '🌺'];
+let cards = [...beachPairs, ...beachPairs];
+let flippedCards = [];
+let matchedPairs = 0;
+let lockBoard = false;
+
+function initGame() {
+    matchedPairs = 0;
+    flippedCards = [];
+    lockBoard = false;
+
+    cards.sort(() => Math.random() - 0.5);
+    const board = document.getElementById('gameBoard');
+    board.innerHTML = '';
+
+    cards.forEach(symbol => {
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.dataset.symbol = symbol;
+        card.innerHTML = '?';
+        card.addEventListener('click', flipCard);
+        board.appendChild(card);
+    });
+}
+
+function flipCard(e) {
+    if (lockBoard) return;
+
+    const card = e.currentTarget;
+
+    if (
+        flippedCards.length < 2 &&
+        !card.classList.contains('flipped') &&
+        !card.classList.contains('matched')
+    ) {
+        card.classList.add('flipped');
+        card.innerHTML = card.dataset.symbol;
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+            lockBoard = true;
+            setTimeout(checkMatch, 600);
+        }
+    }
+}
+
+function checkMatch() {
+    const [card1, card2] = flippedCards;
+
+    if (card1.dataset.symbol === card2.dataset.symbol) {
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+
+        matchedPairs++;
+        document.getElementById('gameStatus').textContent =
+            `Magic matched: ${matchedPairs}/${beachPairs.length}!`;
+
+        if (matchedPairs === beachPairs.length) {
+            showWin();
+        }
+
+        createHearts(3);
+    } else {
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+        card1.innerHTML = '?';
+        card2.innerHTML = '?';
+
+        document.getElementById('gameStatus').textContent =
+            'Tides tangle... but our love always aligns! Try again, my siren. 😘';
+    }
+
+    flippedCards = [];
+    lockBoard = false;
+}
+
+function showWin() {
+    document.getElementById('winMessage').style.display = 'block';
+
+    const collage = document.getElementById('beachCollage');
+    collage.classList.add('visible');
+
+    if (typeof staggerGallery === "function") {
+        staggerGallery('#beachCollage img');
+    }
+
+    localStorage.setItem('loveWins', ++wins);
+
+    if (typeof createConfetti === "function") {
+        createConfetti(100);
+    }
+
+    if (typeof updateProgress === "function") {
+        updateProgress();
+    }
+}
+
+window.onload = () => {
+    initGame();
+    if (typeof createHearts === "function") createHearts(5);
+    if (typeof createCursorTrail === "function") createCursorTrail();
+};
+</script>
+
+</body>
+</html>

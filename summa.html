@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Eternal Love Story – Beachside Bliss Edition 💕🌊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base – Dreamy Depths */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff69b4" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar – Your Compass to Paradise */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(233, 30, 99, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff9a9e;
+            text-shadow: 0 0 10px rgba(255, 154, 158, 0.8);
+        }
+
+        /* Parallax Stars – Fading to Waves */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(2px 2px at 20px 30px, #eee, transparent), radial-gradient(2px 2px at 40px 70px, #ff69b4, transparent);
+            background-size: 100px 100px;
+            animation: twinkle 20s linear infinite;
+        }
+        @keyframes twinkle {
+            100% { transform: translateY(-100px) rotate(1deg); }
+        }
+
+        /* Hero – Eternal Pull */
+        .hero {
+            text-align: center;
+            padding: 150px 0 100px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        .hero p {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            color: #666;
+            font-style: italic;
+        }
+        .countdown {
+            font-size: 1.2rem;
+            color: #e91e63;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .cta-btn {
+            background: linear-gradient(45deg, #ff69b4, #e91e63);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Dancing Script', cursive;
+        }
+        .cta-btn:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 5px 20px rgba(255,105,180,0.4);
+        }
+
+        /* Sections – Fading Romance */
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .memories, .vows {
+            background: rgba(255,255,255,0.9);
+        }
+        .love-notes {
+            background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 100%);
+        }
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            font-size: 3.5rem;
+            color: #e91e63;
+            margin-bottom: 50px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Gallery – Blooming Moments */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .memory-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+            cursor: pointer;
+        }
+        .memory-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(233,30,99,0.2);
+        }
+        .memory-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .memory-card .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .memory-card h3 {
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        .memory-card p {
+            color: #777;
+            font-style: italic;
+        }
+        .surprise-text {
+            display: none;
+            background: #ff9a9e;
+            color: white;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Love Notes – Deeper Oceans of Affection */
+        .note {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .note::before {
+            content: '💌';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        /* Beach Page – Salty Kisses & Endless Horizons */
+        .beach {
+            background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 50%, #F4A460 100%); /* Sky to sand */
+            position: relative;
+            overflow: hidden;
+        }
+        .beach::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #F4A460, transparent);
+            animation: wave 5s ease-in-out infinite alternate;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }
+        .beach h2 {
+            color: #4682B4; /* Ocean blue */
+        }
+        .beach-story {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.8);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            box-shadow: 0 15px 40px rgba(70,130,180,0.3);
+            position: relative;
+        }
+        .beach-story::after {
+            content: '🏖️💕';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+        }
+        .game-container {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .game-card {
+            aspect-ratio: 1;
+            background: #FFEBCD;
+            border: 2px solid #DEB887;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            backface-visibility: hidden;
+        }
+        .game-card.flipped {
+            background: white;
+            transform: rotateY(180deg);
+        }
+        .game-card.matched {
+            background: #90EE90;
+            cursor: default;
+        }
+        .game-status {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #4682B4;
+            font-weight: bold;
+        }
+        .win-message {
+            display: none;
+            color: #e91e63;
+            font-size: 1.5rem;
+            animation: heartbeat 1s infinite;
+        }
+
+        /* Vows – Amplified Affection */
+        .vow-text {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+            transition: all 0.5s;
+        }
+        .surprise-btn {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            color: #e91e63;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Dancing Script', cursive;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        .surprise-btn:hover {
+            transform: scale(1.1);
+            background: #e91e63;
+            color: white;
+        }
+
+        /* Modal – Deeper Secrets */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            animation: modalFade 0.5s;
+        }
+        @keyframes modalFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #fecfef, #ff9a9e);
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #e91e63;
+        }
+
+        /* Footer – Shoreline Promise */
+        footer {
+            background: linear-gradient(135deg, #e91e63, #ff69b4);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            nav ul { flex-direction: column; }
+            .game-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Magic Particles */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff69b4;
+            pointer-events: none;
+            animation: heartFloat 4s linear forwards;
+            z-index: 50;
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="scrollTo('home')">Home</a></li>
+            <li><a href="#memories" onclick="scrollTo('memories')">Memories</a></li>
+            <li><a href="#beach" onclick="scrollTo('beach')">Our Beach Eternal 🌊</a></li>
+            <li><a href="#notes" onclick="scrollTo('notes')">Love Notes</a></li>
+            <li><a href="#vows" onclick="scrollTo('vows')">Our Vows</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise! 💝</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>To My Ocean Soul, [Her Name] 🌹</h1>
+            <p>I love you more than words can wave-crash – deeper than the sea we conquered, brighter than Bengaluru's hidden stars. Dive in, my love.</p>
+            <div class="countdown" id="countdown"></div>
+            <button class="cta-btn" onclick="scrollTo('beach')">To Our Beach... And Beyond</button>
+        </div>
+    </section>
+
+    <!-- Memories -->
+    <section id="memories" class="memories">
+        <div class="container">
+            <h2>Our Cherished Moments ✨</h2>
+            <div class="gallery">
+                <div class="memory-card" onclick="toggleSurprise(this)">
+                    <img src="https://via.placeholder.com/300x250/ff69b4/ffffff?text=Our+First+Date" alt="First Date" loading="lazy">
+                    <div class="content">
+                        <h3>That First Spark</h3>
+                        <p>Under the stars on [Date], when your laugh lit up the night. "You're my favorite hello."</p>
+                        <div class="surprise-text">P.S. I still replay that kiss in my dreams every night. 💋</div>
+                    </div>
+                </div>
+                <div class="memory-card" onclick="toggleSurprise(this)">
+                    <img src="https://via.placeholder.com/300x250/e91e63/ffffff?text=Rainy+Day+Dance" alt="Rainy Day" loading="lazy">
+                    <div class="content">
+                        <h3>Rain-Kissed Promises</h3>
+                        <p>We danced in the downpour, forgetting the world. Your hand in mine – home.</p>
+                        <div class="surprise-text">Surprise: That umbrella? I "forgot" it on purpose. Wanted you close forever. ☔❤️</div>
+                    </div>
+                </div>
+                <div class="memory-card" onclick="toggleSurprise(this)">
+                    <img src="https://via.placeholder.com/300x250/ff9a9e/ffffff?text=Sunset+Whispers" alt="Sunset" loading="lazy">
+                    <div class="content">
+                        <h3>Sunset Swears</h3>
+                        <p>As the sun dipped low on [Date], I promised you forever. And I meant it.</p>
+                        <div class="surprise-text">Hidden vow: I'd chase a thousand sunsets just to hold you in one. 🌅</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beach Eternal -->
+    <section id="beach" class="beach">
+        <div class="container">
+            <h2>Our Beachside Symphony – Where I Fell Deeper 💙🏖️</h2>
+            <div class="beach-story">
+                <p>Remember that golden afternoon on [Beach Name/Date], my love? The waves lapping at our toes like shy confessions, the sun painting your skin in hues I could drown in forever. You laughed as the sea tried to steal your hat, and in that moment, I knew: I love you sooo much it aches like the tide's pull – fierce, unrelenting, pulling me back to you every time I drift. You're my anchor in the storm, my calm in the crash, the salt on my lips that tastes like home. Every grain of sand holds a piece of us; every shell, a whisper of "I adore you." God, [Her Name], loving you is my greatest adventure – wilder than monsoons, sweeter than stolen mangoes under Bengaluru stars. I love you more than the ocean loves the shore: endlessly, completely, with every crashing wave of my soul.</p>
+                <div class="game-container" id="gameBoard">
+                    <!-- Game cards will be generated by JS -->
+                </div>
+                <div class="game-status" id="gameStatus">Flip to match our beach memories! Win my heart (again). 💕</div>
+                <div class="win-message" id="winMessage">You did it! Just like you captured mine. Here's your reward... 💖</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Notes – Overflowing Devotion -->
+    <section id="notes" class="love-notes">
+        <div class="container">
+            <h2>Words From My Soul To Yours 💌</h2>
+            <div class="note">
+                My dearest [Her Name], I love you sooo much – like the first rain after drought, quenching every parched corner of me. You're the rhythm in my chaos, the light in my every shadow. Without you, I'm adrift; with you, I'm whole.
+            </div>
+            <div class="note">
+                From our beach whispers to quiet nights dreaming of more, my care for you runs deeper than roots in Karnataka soil. I cherish your fire, your softness, your unyielding grace. You're not just loved; you're worshipped, adored, my eternal muse.
+            </div>
+            <div class="note">
+                Valentine's whispers: I love you beyond measure, beyond time – sooo much that stars envy our glow. Let's build empires of us, hand in hand, wave after wave.
+            </div>
+        </div>
+    </section>
+
+    <!-- Vows -->
+    <section id="vows" class="vows">
+        <div class="container">
+            <h2>Replay Our Vows? 💍</h2>
+            <p class="vow-text" id="vowDisplay">Click to renew... and feel how deeply I love you.</p>
+            <button class="vow-btn cta-btn" onclick="replayVows()">Yes, With All My Heart!</button>
+            <button class="surprise-btn" onclick="randomQuote()">A Whisper of My Love</button>
+        </div>
+    </section>
+
+    <!-- Modal Surprise -->
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSurprise()">&times;</span>
+            <h2 style="color: #e91e63; margin-bottom: 20px;">A Secret Sonnet For My Wave-Crasher 💝</h2>
+            <p>In salty embrace where horizons kiss,<br>
+            Your eyes, twin seas, pull me under sweet;<br>
+            Navin's heart, once wanderer, finds its bliss<br>
+            In you – my tide, my rhythm, my heartbeat.<br>
+            From Bengaluru's hum to ocean's roar,<br>
+            I love you fierce, like storms that never cease;<br>
+            You're etched in shells, on every shore,<br>
+            My forever, my peace, my wild release.<br>
+            Surprise! More verses await – our story's just begun. 😘</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Crafted with waves of passion by [Your Name]. I love you sooo much, [Her Name] – let's chase more sunsets. 🌅💕</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Visibility Observer
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.id === 'beach' && !localStorage.getItem('beachVisited')) {
+                        localStorage.setItem('beachVisited', 'true');
+                        setTimeout(() => {
+                            alert('Waves crashing... just like my heart for you. Play the game, love! 🌊💖');
+                            createHearts(15);
+                        }, 500);
+                    }
+                }
+            });
+        });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+        // Countdown
+        function updateCountdown() {
+            const now = new Date();
+            const valentine = new Date('2026-02-14T00:00:00');
+            const diff = valentine - now;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').innerHTML = `${days} waves until our Valentine's tide! 🎉`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 86400000);
+
+        // Toggle Surprise
+        function toggleSurprise(card) {
+            const surprise = card.querySelector('.surprise-text');
+            surprise.style.display = surprise.style.display === 'block' ? 'none' : 'block';
+            createConfetti(50);
+        }
+
+        // Beach Game: Memory Match
+        const beachPairs = ['🌊', '🏖️', '🌅', '💕']; // Doubled for pairs
+        let cards = [...beachPairs, ...beachPairs];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let gameBoard = document.getElementById('gameBoard');
+        let gameStatus = document.getElementById('gameStatus');
+        let winMessage = document.getElementById('winMessage');
+
+        function initGame() {
+            cards.sort(() => Math.random() - 0.5);
+            gameBoard.innerHTML = '';
+            cards.forEach((symbol, index) => {
+                const card = document.createElement('div');
+                card.className = 'game-card';
+                card.dataset.symbol = symbol;
+                card.dataset.index = index;
+                card.addEventListener('click', flipCard);
+                gameBoard.appendChild(card);
+            });
+        }
+
+        function flipCard(e) {
+            const card = e.currentTarget;
+            if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
+                card.classList.add('flipped');
+                card.textContent = card.dataset.symbol;
+                flippedCards.push(card);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 500);
+                }
+            }
+        }
+
+        function checkMatch() {
+            if (flippedCards[0].dataset.symbol === flippedCards[1].dataset.symbol) {
+                flippedCards.forEach(c => c.classList.add('matched'));
+                matchedPairs++;
+                if (matchedPairs === beachPairs.length) {
+                    winMessage.style.display = 'block';
+                    createConfetti(100);
+                    createHearts(20);
+                    gameStatus.textContent = 'You matched our magic! 💖';
+                }
+            } else {
+                flippedCards.forEach(c => {
+                    c.classList.remove('flipped');
+                    c.textContent = '';
+                });
+                gameStatus.textContent = 'Not quite... but my love for you always matches perfectly! Try again. 😘';
+            }
+            flippedCards = [];
+        }
+
+        // Replay Vows – Love Overload
+        function replayVows() {
+            const vowDisplay = document.getElementById('vowDisplay');
+            vowDisplay.innerHTML = '[Her Name], I love you sooo much – more than breaths, more than beats, more than the stars we counted that beach night. I vow to hold you like the sea holds secrets: tenderly, eternally, with every fiber of me yours.';
+            vowDisplay.style.color = '#e91e63';
+            createConfetti(100);
+            createHearts(15);
+        }
+
+        // Random Quote
+        const quotes = [
+            "I love you sooo much, like waves to the moon – inevitable, infinite.",
+            "Your beach smile? It replays in my soul, pulling me closer every time.",
+            "In you, I've found my forever tide. Sooo much love, always."
+        ];
+        function randomQuote() {
+            const random = quotes[Math.floor(Math.random() * quotes.length)];
+            alert(`💭 ${random}`);
+            createHearts(5);
+        }
+
+        // Surprise Modal
+        function openSurprise() {
+            document.getElementById('surpriseModal').style.display = 'block';
+            createConfetti(80);
+        }
+        function closeSurprise() {
+            document.getElementById('surpriseModal').style.display = 'none';
+        }
+        window.onclick = (e) => {
+            if (e.target.classList.contains('modal')) closeSurprise();
+        }
+
+        // Confetti & Hearts
+        function createConfetti(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = ['💖', '💕', '💝', '🌹', '🌊'][Math.floor(Math.random() * 5)];
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '100vh';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.fontSize = '20px';
+                    confetti.style.zIndex = '100';
+                    confetti.style.animation = 'heartFloat 3s linear forwards';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 50);
+            }
+        }
+
+        function createHearts(count = 10) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.className = 'heart';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 200);
+            }
+        }
+
+        // Load
+        window.onload = () => {
+            createHearts(10);
+            updateCountdown();
+            initGame(); // Start beach game
+        };
+    </script>
+</body>
+</html>
+
+

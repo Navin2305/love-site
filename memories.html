@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories – Chapter 2: Unlock the Past ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital@0;1&family=Georgia:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="heart-trail" id="heartTrail"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home 💖</a></li>
+            <li><a href="memories.html" class="active">Memories 🔓</a></li>
+            <li><a href="beach.html">Our Beach 🌊</a></li>
+            <li><a href="notes.html">Whispers 💌</a></li>
+            <li><a href="vows.html">Vows 💍</a></li>
+            <li><a href="#" onclick="openSurprise()">Surprise Scratch! 🕹️</a></li>
+            <li><a href="#" onclick="unlockEternal()">Eternal Us? (Secret)</a></li>
+        </ul>
+    </nav>
+    <main class="container" style="padding: 100px 0; text-align: center;">
+        <h1 class="animate-in">Our Cherished Moments – Solve to See 💫</h1>
+        <p class="hero-text animate-in" style="animation-delay: 0.3s;">A riddle for you, my clever heart: "What has keys but opens no locks, space but no room, and you can enter but not go inside?" (Hint: It's where our first date danced, typing sweet nothings.) Answer below to unlock the gallery of us – photos that capture every "I love you sooo much" glance!</p>
+        <input type="text" id="riddleInput" placeholder="Your guess..." style="padding: 15px; border-radius: 25px; border: 2px solid #ff69b4; text-align: center; font-size: 1.2rem; margin: 20px; width: 300px; font-family: 'Playfair Display', serif; transition: border-color 0.3s;">
+        <button onclick="solveRiddle()" class="envelope animate-in" style="animation-delay: 0.6s; background: linear-gradient(45deg, #ff69b4, #e91e63); padding: 15px 30px; font-size: 1.3rem;">Unlock Our Snaps</button>
+        <div id="memoriesGallery" style="display: none;">
+            <div class="gallery">
+                <div class="photo-card">
+                    <img src="pic/pic-1.jpeg" alt="Our first spark – your smile under the stars, my heart forever lit." loading="lazy">
+                    <div class="photo-overlay">
+                        <h3>That First Spark</h3>
+                        <p>Under the stars on our Moon night day, your laugh lit the night. Secret: I remmeber that 100 times a day, heart racing like now. 💋</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="pic/pic-2.jpeg" alt="Rain-kissed us – dancing free, world blurred to just you and me." loading="lazy">
+                    <div class="photo-overlay">
+                        <h3>Rain-Kissed Promises</h3>
+                        <p>We danced in the downpour, world forgotten. Secret: Your wet hair? My favorite poetry, wild and free. ☔</p>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <img src="pic/pic-3.jpeg" alt="Sunset vows – horizon echoing my promise: you, always." loading="lazy">
+                    <div class="photo-overlay">
+                        <h3>Sunset Swears</h3>
+                        <p>Sun dipping low, forever promised. Secret: I'd rewrite the sky in pinks just for your eyes. 🌅</p>
+                    </div>
+                </div>
+            </div>
+            <div class="secret-popup" id="riddleSecret">
+                <p>Yes! A keyboard – like the one typing our story. Win +1 heart & snap. I love you for your mind, too – sharp as a monsoon spark. Now, onward? 🌟</p>
+                <button onclick="closeSecret('riddleSecret')">To the Next Wave</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('riddleInput').addEventListener('input', () => {
+            document.getElementById('riddleInput').style.borderColor = '#ff69b4';
+        });
+        let wins = parseInt(localStorage.getItem('loveWins') || 0);
+        function solveRiddle() {
+            const input = document.getElementById('riddleInput').value.toLowerCase();
+            if (input.includes('keyboard')) {
+                document.getElementById('memoriesGallery').style.display = 'block';
+                staggerGallery('.photo-card');
+                document.getElementById('riddleSecret').style.display = 'block';
+                localStorage.setItem('loveWins', ++wins);
+                createConfetti(50);
+                updateProgress();
+            } else {
+                document.getElementById('riddleInput').style.borderColor = '#ff9a9e';
+                alert('Close, love! Try again – like how I fell for you on the first try. (Hint: It\'s musical, too!) 😏');
+                createHearts(3);
+            }
+        }
+        window.onload = () => { createCursorTrail(); };
+    </script>
+</body>
+</html>
